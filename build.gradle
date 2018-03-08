@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RELEASE'
+		springBootVersion = '1.5.9.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -17,10 +17,12 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.vlavik'
 version = '0.0.1-SNAPSHOT'
+
 sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
 }
 
 
@@ -32,4 +34,8 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	runtime('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.3'
 }

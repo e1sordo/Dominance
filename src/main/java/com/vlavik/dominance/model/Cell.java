@@ -26,7 +26,6 @@ public class Cell {
     @Column(name = "current_occupancy", nullable = false)
     private int currentOccupancy = 0;
 
-    @ManyToOne
-    @JoinColumn(name = "owner", nullable = true)
-    private Player owner;
+    @Column(name = "player_number", nullable = false)
+    private int playerNumber;
 }

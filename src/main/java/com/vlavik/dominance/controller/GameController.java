@@ -1,10 +1,11 @@
 package com.vlavik.dominance.controller;
 
-import com.vlavik.dominance.dto.GameDTO;
 import com.vlavik.dominance.model.Game;
 import com.vlavik.dominance.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -19,10 +20,9 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @PostMapping("/create")
-    public Game createGame(@RequestBody GameDTO gameDTO) {
-        Game game = new Game();
-        return game;
+    @GetMapping("/create")
+    public Game createGame() {
+        return gameService.createGame();
     }
 
     @GetMapping("/list")

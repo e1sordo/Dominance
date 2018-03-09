@@ -1,5 +1,6 @@
 package com.vlavik.dominance.model;
 
+import com.vlavik.dominance.model.enums.GameStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,12 @@ public class Game {
     @ManyToOne
     @JoinColumn(name = "player_id", nullable = false)
     private User player;
+
+    @Enumerated(EnumType.STRING)
+    private GameStatus gameStatus;
+
+    // todo
+    private Arena arena;
 
     @Column(name = "created_date", nullable = false)
     private Date created;
